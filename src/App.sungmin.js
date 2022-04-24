@@ -2,32 +2,24 @@ import React from "react";
 import styled from "styled-components";
 
 class App extends React.Component {
-  state = {
-    query: ""
-  };
   render() {
-    return (
-      <Container query={this.state.query}>
-        <Input
-          placeholder="테마를 입력하세요"
-          onKeyPress={this.handleInputKeyPress}
-        ></Input>
-      </Container>
-    );
+    return(
+<Container>
+  <Input placeholder="테마를 입력하세요"
+    onKeyPress={this.handleInputKeyPress}
+  ></Input>
+</Container>
+    ) 
   }
-handleInputKeyPress = event => {
-  if (event.key === "Enter") {
-    this.setState({
-      query: event.target.value
-    });
-    event.target.value = "";
+
+  handleInputKeyPress = event => {
+    if (event.key ==="Enter"){
+      console.log(event.target.value);
+    }
   }
-};
 }
-
-
 const Input = styled.input`
-  position: absolute;
+    position: absolute;
   top: 0;
   right: 0;
   width: 190px;
@@ -38,7 +30,7 @@ const Input = styled.input`
   border: none;
   font-size: 22px;
   color: white;
-`;
+`
 
 
 const Container = styled.div`
@@ -53,9 +45,10 @@ const Container = styled.div`
       rgba(20,20,20,0.7) 70%,
       rgba(20,20,20,1)
      ),
-     url(https://source.unsplash.com/random/1920x1080?${props => props.query});
+    url(https://source.unsplash.com/random/1920x1080);
   background-size: cover;
-`;
+  `;
+
 
 
 export default App;
